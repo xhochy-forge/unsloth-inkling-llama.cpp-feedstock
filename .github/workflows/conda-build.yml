@@ -24,32 +24,6 @@ jobs:
       max-parallel: 50
       matrix:
         include:
-          - CONFIG: linux_64_c_stdlib_version2.17cuda_compiler_version12.9
-            CONFIG_SHORT: linux_64_c_stdlib_version2.17cuda_compil_hd7918865
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
-            STORE_BUILD_ARTIFACTS: True
-            UPLOAD_PACKAGES: False
-            build_workspace_dir: build_artifacts
-            docker_run_args: 
-            free_disk_space: quick
-            os: ubuntu
-            pagefile_size: 0
-            resize_partitions: False
-            runs_on: ['ubuntu-latest']
-            tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_c_stdlib_version2.17cuda_compiler_versionNone
-            CONFIG_SHORT: linux_64_c_stdlib_version2.17cuda_compil_he55e7c14
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
-            STORE_BUILD_ARTIFACTS: True
-            UPLOAD_PACKAGES: False
-            build_workspace_dir: build_artifacts
-            docker_run_args: 
-            free_disk_space: quick
-            os: ubuntu
-            pagefile_size: 0
-            resize_partitions: False
-            runs_on: ['ubuntu-latest']
-            tools_install_dir: ~/miniforge3
           - CONFIG: linux_64_c_stdlib_version2.28cuda_compiler_version13.0
             CONFIG_SHORT: linux_64_c_stdlib_version2.28cuda_compil_h282d3825
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
@@ -63,9 +37,9 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_aarch64_arm_variant_typesbsac_stdlib_version2.17cuda_compiler_version12.9
-            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsac_stdl_h6a4a0357
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+          - CONFIG: linux_64_c_stdlib_version2.34cuda_compiler_version12.9
+            CONFIG_SHORT: linux_64_c_stdlib_version2.34cuda_compil_h19d9002e
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
             build_workspace_dir: build_artifacts
@@ -74,11 +48,11 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_aarch64_arm_variant_typesbsac_stdlib_version2.17cuda_compiler_versionNone
-            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsac_stdl_hb891f43d
-            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+          - CONFIG: linux_64_c_stdlib_version2.34cuda_compiler_versionNone
+            CONFIG_SHORT: linux_64_c_stdlib_version2.34cuda_compil_he97042f6
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
             build_workspace_dir: build_artifacts
@@ -87,10 +61,36 @@ jobs:
             os: ubuntu
             pagefile_size: 0
             resize_partitions: False
-            runs_on: ['ubuntu-24.04-arm']
+            runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
           - CONFIG: linux_aarch64_arm_variant_typesbsac_stdlib_version2.28cuda_compiler_version13.0
             CONFIG_SHORT: linux_aarch64_arm_variant_typesbsac_stdl_h1d8a58f0
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            STORE_BUILD_ARTIFACTS: True
+            UPLOAD_PACKAGES: False
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
+            free_disk_space: quick
+            os: ubuntu
+            pagefile_size: 0
+            resize_partitions: False
+            runs_on: ['ubuntu-24.04-arm']
+            tools_install_dir: ~/miniforge3
+          - CONFIG: linux_aarch64_arm_variant_typesbsac_stdlib_version2.34cuda_compiler_version12.9
+            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsac_stdl_hc8324369
+            DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
+            STORE_BUILD_ARTIFACTS: True
+            UPLOAD_PACKAGES: False
+            build_workspace_dir: build_artifacts
+            docker_run_args: 
+            free_disk_space: quick
+            os: ubuntu
+            pagefile_size: 0
+            resize_partitions: False
+            runs_on: ['ubuntu-24.04-arm']
+            tools_install_dir: ~/miniforge3
+          - CONFIG: linux_aarch64_arm_variant_typesbsac_stdlib_version2.34cuda_compiler_versionNone
+            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsac_stdl_h411be591
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
