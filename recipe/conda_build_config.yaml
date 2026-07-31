@@ -1,5 +1,7 @@
-c_stdlib_version:    # [osx]
+c_stdlib_version:    # [unix]
   - '11.0'           # [osx]
+  - "2.34"           # [linux]
+  - "2.34"           # [linux]
 MACOSX_SDK_VERSION:  # [osx]
   - '26.1'           # [osx]
 
