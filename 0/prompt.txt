@@ -1,0 +1,25 @@
+"conda-smithy rerender -c auto" is failing. Please fix it. You might need to search how other CUDA-enabled feedstocks do this or consult the conda-forge skill.
+
+---
+
+Why does there still a `linux_aarch64_arm_variant_typesbsac_stdlib_version2.28cuda_compiler_version13.0.yaml` exist? Shouldn't all be upgraded to 2.34?
+
+---
+
+I managed to fix this by using `use_local` in the migration but now it fails with
+
+```
+# CONDA_OVERRIDE_CUDA=12.9 conda-build -m .ci_support/linux_aarch64_arm_variant_typesbsacuda_compiler_version12.9.yaml recipe -c conda-forge
+Traceback (most recent call last):
+  File "/opt/_global/conda-build/.pixi/envs/default/bin/conda-build", line 10, in <module>
+    sys.exit(execute())
+  File "/opt/_global/conda-build/.pixi/envs/default/lib/python3.10/site-packages/conda_build/cli/main_build.py", line 585, in execute
+    return run_rattler(command, parsed, config)
+  File "/opt/_global/conda-build/.pixi/envs/default/lib/python3.10/site-packages/conda_build/_rattler_build/compat.py", line 408, in run_rattler
+    variant_config = variant_config.merge(VariantConfig.from_file(variant))
+  File "/opt/_global/conda-build/.pixi/envs/default/lib/python3.10/site-packages/rattler_build/variant_config.py", line 98, in from_file
+    variant_config._inner = _VariantConfig.from_file(Path(path))
+rattler_build.PyVariantError: ParseError { path: "/Users/uwe.korn/Development/conda-forge/llama.cpp-feedstock/recipe/conda_build_config.yaml", source: Generic { message: "Duplicate key \"c_stdlib_version\" in mapping at 1:1 and 5:1", span: Span { start: None, end: None }, suggestion: None } }
+```
+
+You can also use `CONDA_OVERRIDE_CUDA=12.9 conda-build -m .ci_support/linux_aarch64_arm_variant_typesbsacuda_compiler_version12.9.yaml recipe -c conda-forge` to verify your changes.
