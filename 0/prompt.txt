@@ -1,0 +1,1 @@
+"conda-smithy rerender -c auto" is failing. Please fix it. You might need to search how other CUDA-enabled feedstocks do this or consult the conda-forge skill.
