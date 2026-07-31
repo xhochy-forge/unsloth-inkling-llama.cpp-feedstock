@@ -3,13 +3,13 @@ About llama.cpp-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/llama.cpp-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/poolsideai/llama.cpp/tree/laguna
+Home: https://github.com/danielhanchen/llama.cpp/tree/add-inkling
 
 Package license: MIT
 
-Summary: Port of Facebook's LLaMA model in C/C++ (build of https://github.com/poolsideai/llama.cpp/tree/laguna)
+Summary: Port of Facebook's LLaMA model in C/C++ (build of https://github.com/danielhanchen/llama.cpp/tree/add-inkling)
 
-Development: https://github.com/poolsideai/llama.cpp/tree/laguna
+Development: https://github.com/danielhanchen/llama.cpp/tree/add-inkling
 
 Current build status
 ====================
