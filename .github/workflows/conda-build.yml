@@ -24,8 +24,8 @@ jobs:
       max-parallel: 50
       matrix:
         include:
-          - CONFIG: linux_64_c_stdlib_version2.28cuda_compiler_version13.0
-            CONFIG_SHORT: linux_64_c_stdlib_version2.28cuda_compil_h282d3825
+          - CONFIG: linux_64_cuda_compiler_version12.9
+            CONFIG_SHORT: linux_64_cuda_compiler_version12.9
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
@@ -37,8 +37,8 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_c_stdlib_version2.34cuda_compiler_version12.9
-            CONFIG_SHORT: linux_64_c_stdlib_version2.34cuda_compil_h19d9002e
+          - CONFIG: linux_64_cuda_compiler_version13.0
+            CONFIG_SHORT: linux_64_cuda_compiler_version13.0
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
@@ -50,8 +50,8 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_c_stdlib_version2.34cuda_compiler_versionNone
-            CONFIG_SHORT: linux_64_c_stdlib_version2.34cuda_compil_he97042f6
+          - CONFIG: linux_64_cuda_compiler_versionNone
+            CONFIG_SHORT: linux_64_cuda_compiler_versionNone
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
@@ -63,8 +63,8 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_aarch64_arm_variant_typesbsac_stdlib_version2.28cuda_compiler_version13.0
-            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsac_stdl_h1d8a58f0
+          - CONFIG: linux_aarch64_arm_variant_typesbsacuda_compiler_version12.9
+            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsacuda_c_hf34973e1
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
@@ -76,8 +76,8 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-24.04-arm']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_aarch64_arm_variant_typesbsac_stdlib_version2.34cuda_compiler_version12.9
-            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsac_stdl_hc8324369
+          - CONFIG: linux_aarch64_arm_variant_typesbsacuda_compiler_version13.0
+            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsacuda_c_hcd9c4244
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
@@ -89,8 +89,8 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-24.04-arm']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_aarch64_arm_variant_typesbsac_stdlib_version2.34cuda_compiler_versionNone
-            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsac_stdl_h411be591
+          - CONFIG: linux_aarch64_arm_variant_typesbsacuda_compiler_versionNone
+            CONFIG_SHORT: linux_aarch64_arm_variant_typesbsacuda_c_he0fd5934
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
@@ -102,8 +102,8 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-24.04-arm']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_aarch64_arm_variant_typetegrac_stdlib_version2.34cuda_compiler_version12.9
-            CONFIG_SHORT: linux_aarch64_arm_variant_typetegrac_std_h645bfee9
+          - CONFIG: linux_aarch64_arm_variant_typetegracuda_compiler_version12.9
+            CONFIG_SHORT: linux_aarch64_arm_variant_typetegracuda__h3384e0f8
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
             STORE_BUILD_ARTIFACTS: True
             UPLOAD_PACKAGES: False
