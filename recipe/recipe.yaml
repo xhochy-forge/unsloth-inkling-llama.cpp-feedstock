@@ -1,7 +1,7 @@
 context:
   name: llama.cpp
-  version: "2026.07.30"
-  build: 1
+  version: "2026.08.10"
+  build: 0
   # ensure arm_variant_type gets detected as a used variable
   touch_arm_variant_type: ${{ arm_variant_type if (linux and aarch64) else "None" }}
 
@@ -11,7 +11,9 @@ package:
 
 source:
   git: https://github.com/danielhanchen/llama.cpp
-  rev: "d69b7e606af7f59d9e81c5c81a5c7ce0dad197e1"
+  rev: "0a9841fa63edce1cd252ed6efea713715abb0cf2"
+  patches:
+    - disable-spirv-opt-for-unsupported-vulkan-shaders.patch
 
 build:
   # See https://conda-forge.org/docs/user/tipsandtricks/#installing-cuda-enabled-packages-like-tensorflow-and-pytorch

@@ -1,0 +1,36 @@
+From 95a7f25099b2f130696ed9158d9687bf5cc82f74 Mon Sep 17 00:00:00 2001
+From: "Uwe L. Korn" <uwelk@xhochy.com>
+Date: Wed, 12 Aug 2026 07:30:12 +0000
+Subject: [PATCH] vulkan: disable spirv-opt for unsupported shaders
+
+Cooperative matrix 2 shaders can make shaderc's optimizer segfault, while OCP FP4 shaders fail optimization because spirv-opt does not recognize 4-bit OpTypeFloat.
+---
+ ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp b/ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp
+index c93d6eece..1e5d6d4b6 100644
+--- a/ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp
++++ b/ggml/src/ggml-vulkan/vulkan-shaders/vulkan-shaders-gen.cpp
+@@ -347,7 +347,8 @@ void string_to_spv_func(std::string name, std::string in_path, std::string out_p
+     // disable spirv-opt for bf16 shaders for https://github.com/ggml-org/llama.cpp/issues/15344
+     // disable spirv-opt for rope shaders for https://github.com/ggml-org/llama.cpp/issues/16860
+     // disable spirv-opt for dot2 shaders (spirv-opt doesn't recognize SPV_VALVE_mixed_float_dot_product capability)
+-    if (!coopmat && name.find("bf16") == std::string::npos && name.find("rope") == std::string::npos && name.find("_dot2") == std::string::npos) {
++    // disable spirv-opt for OCP FP4 shaders (spirv-opt doesn't recognize 4-bit OpTypeFloat types)
++    if (!coopmat && defines.find("USE_OCP_FP4") == defines.end() && name.find("bf16") == std::string::npos && name.find("rope") == std::string::npos && name.find("_dot2") == std::string::npos) {
+         cmd.push_back("-O");
+     }
+ 
+@@ -435,7 +436,7 @@ void string_to_spv(std::string name, const std::string& source, const std::map<s
+ 
+     compile_count_guard slot = acquire_compile_slot();
+     compiles.push_back(std::async(
+-        string_to_spv_func, name, input_filepath, out_path, defines, coopmat, generate_dep_file, std::move(slot)));
++        string_to_spv_func, name, input_filepath, out_path, defines, coopmat || coopmat2, generate_dep_file, std::move(slot)));
+     // Don't write the same dep file from multiple processes
+     generate_dep_file = false;
+ 
+-- 
+2.43.0
+
