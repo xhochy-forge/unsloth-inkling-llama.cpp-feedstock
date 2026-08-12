@@ -1,0 +1,9 @@
+"rattler-build build -m .ci_support/linux_aarch64_arm_variant_typesbsacuda_compiler_versionNone.yaml -r recipe/recipe.yaml" fails. Run it, observe the result and fix the problems.
+
+---
+
+"rattler-build build -m .ci_support/linux_aarch64_arm_variant_typesbsacuda_compiler_versionNone.yaml -r recipe/recipe.yaml" fails. Run it, observe the result and fix the problems.
+
+---
+
+Please make the patch a git-style patch

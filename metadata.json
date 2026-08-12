@@ -1,0 +1,27 @@
+{
+  "cli_version": "dev",
+  "checkpoint_id": "01KZTE7CQJ2CX44WVTHCN0H086",
+  "strategy": "manual-commit",
+  "branch": "unsloth-inkling-20260810",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "recipe/disable-spirv-opt-for-unsupported-vulkan-shaders.patch",
+    "recipe/recipe.yaml"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 128472,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 1305088,
+    "output_tokens": 6818,
+    "api_call_count": 27
+  }
+}
