@@ -1,6 +1,6 @@
 context:
   name: llama.cpp
-  version: "2026.08.10"
+  version: "2026.10.23"
   build: 0
   # ensure arm_variant_type gets detected as a used variable
   touch_arm_variant_type: ${{ arm_variant_type if (linux and aarch64) else "None" }}
@@ -11,7 +11,7 @@ package:
 
 source:
   git: https://github.com/danielhanchen/llama.cpp
-  rev: "0a9841fa63edce1cd252ed6efea713715abb0cf2"
+  rev: "fb9ddb92df2c4f71417172626e86d7e6bfe55a96"
   patches:
     - disable-spirv-opt-for-unsupported-vulkan-shaders.patch
 
@@ -61,7 +61,7 @@ build:
         {%- endmacro %}
 
         ${{ cmake_args("BUILD_SHARED_LIBS=ON") }}
-        ${{ llama_args("CURL=ON") }}
+        ${{ llama_args("OPENSSL=ON") }}
 
         {%- if osx and arm64 %}
         ${{ ggml_args("NATIVE=OFF") }}
@@ -131,7 +131,7 @@ build:
         {%- endmacro %}
 
         ${{ cmake_args("BUILD_SHARED_LIBS=ON") }}
-        ${{ llama_args("CURL=ON") }}
+        ${{ llama_args("OPENSSL=ON") }}
 
         ${{ ggml_args("NATIVE=OFF") }}
 
@@ -182,7 +182,7 @@ requirements:
     - ninja
     - pkgconfig
   host:
-    - libcurl
+    - openssl >=3.0
     - if: linux or win
       then:
         - libvulkan-headers
@@ -292,9 +292,9 @@ tests:
         # Check CMake configuration files
           - echo "Checking CMake configuration files..."
           - check_file "$PREFIX/lib/cmake/ggml/ggml-config.cmake" "ggml-config.cmake"
-          - check_file "$PREFIX/lib/cmake/ggml/ggml-version.cmake" "ggml-version.cmake"
+          - check_file "$PREFIX/lib/cmake/ggml/ggml-config-version.cmake" "ggml-config-version.cmake"
           - check_file "$PREFIX/lib/cmake/llama/llama-config.cmake" "llama-config.cmake"
-          - check_file "$PREFIX/lib/cmake/llama/llama-version.cmake" "llama-version.cmake"
+          - check_file "$PREFIX/lib/cmake/llama/llama-config-version.cmake" "llama-config-version.cmake"
 
         # Check libraries
           - echo "Checking library files..."
